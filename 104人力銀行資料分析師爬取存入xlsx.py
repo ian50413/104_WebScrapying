@@ -1,3 +1,5 @@
+!pip install xlsxwriter
+
 # 0406完成版本
 import requests
 from bs4 import BeautifulSoup
