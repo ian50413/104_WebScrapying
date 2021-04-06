@@ -45,8 +45,12 @@ for i in range(0, 1):
                 with open(folderName + title[0].text + '.txt', 'w', encoding='utf-8') as f:
                     f.write(title[0].text)
             except FileNotFoundError:
-                with open(folderName + title[0].text.replace('/','-') + '.txt', 'w', encoding='utf-8') as f:
-                    f.write(title[0].text)
+                if '/' in title[0].text:
+                    with open(folderName + title[0].text.replace('/','-') + '.txt', 'w', encoding='utf-8') as f:
+                        f.write(title[0].text)
+                else:
+                    with open(folderName + title[0].text.replace('\\','-') + '.txt', 'w', encoding='utf-8') as f:
+                        f.write(title[0].text)
             except OSError:
                 pass
     #         =====================
@@ -323,21 +327,38 @@ for i in range(0, 1):
                     f.write(jobLOther)
                     f.write(jobWelfare)
             except FileNotFoundError:
-                with open(folderName + title[0].text.replace('\\') + '.txt', 'w', encoding='utf-8') as f:
-                    f.write(custName)
-                    f.write(jobDescription)
-                    f.write(jobCategory)
-                    f.write(jobSalary)
-                    f.write(jobType)
-                    f.write(jobLocation)
-                    f.write(jobSpecialty)
-                    f.write(jobSkill)
-                    f.write(jobworkExp)
-                    f.write(jobEdu)
-                    f.write(jobMajor)
-                    f.write(jobLanguage)
-                    f.write(jobLOther)
-                    f.write(jobWelfare)
+                if '/' in title[0].text:
+                    with open(folderName + title[0].text.replace('\\') + '.txt', 'w', encoding='utf-8') as f:
+                        f.write(custName)
+                        f.write(jobDescription)
+                        f.write(jobCategory)
+                        f.write(jobSalary)
+                        f.write(jobType)
+                        f.write(jobLocation)
+                        f.write(jobSpecialty)
+                        f.write(jobSkill)
+                        f.write(jobworkExp)
+                        f.write(jobEdu)
+                        f.write(jobMajor)
+                        f.write(jobLanguage)
+                        f.write(jobLOther)
+                        f.write(jobWelfare)
+                 else:
+                    with open(folderName + title[0].text.replace('\\','-') + '.txt', 'w', encoding='utf-8') as f:
+                        f.write(custName)
+                        f.write(jobDescription)
+                        f.write(jobCategory)
+                        f.write(jobSalary)
+                        f.write(jobType)
+                        f.write(jobLocation)
+                        f.write(jobSpecialty)
+                        f.write(jobSkill)
+                        f.write(jobworkExp)
+                        f.write(jobEdu)
+                        f.write(jobMajor)
+                        f.write(jobLanguage)
+                        f.write(jobLOther)
+                        f.write(jobWelfare)
             except OSError:
                 pass
 #             暫時無法寫入: 00-1職缺類別 /  01-1技術項dict / 01-2其他技能項dict / 01-5科系要求-其下面為list / 01-6語文條件
