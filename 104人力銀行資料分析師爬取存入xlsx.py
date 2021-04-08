@@ -12,7 +12,7 @@ import pandas as pd
 
 # 01製作欄位
 columns = [
-    'jobTitle', 'CorName', 'jobContent', 'jobCategory', 'Salary', 'jobType', 'Location', 'SkillRequirements', 'Ability', 'WorkExp', 'Education', 'Major', 'Language', 'Others', 'Welfare'
+    '公司名稱', '職缺名稱', '工作內容', '網頁連結', '職缺類別', '薪資', '工作類型', '工作地點', '需求技能', '相關能力', '工作經驗', '教育程度', '科系要求', '語言條件', '其他', '公司福利'
 ]
 
 # 02製作空表格
@@ -32,7 +32,7 @@ page = 1
 動用以下for迴圈可以選擇欲爬取頁數
 """
 No = 1
-for i in range(0, 5):
+for i in range(0, 1):
     res = requests.get(url, headers=headers)
     html = res.text
     soup = BeautifulSoup(html, 'html.parser')
@@ -224,7 +224,7 @@ for i in range(0, 5):
         ======================將製作出的Pandas表格合併進入原始空表格============================
         """
         data = [
-            [title[0].text, jsonHeader, jobContent, jobCategory, jobDetSal, jobType, 
+            [jsonHeader, title[0].text, jobContent, articleUrl, jobCategory, jobDetSal, jobType, 
             jobLocation, jobSpecialty, jobSkill, jobConExp, jobConEdu, jobMajor, jobLanguage, jobConElse, jobWelWel]
         ]
         
